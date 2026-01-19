@@ -8,9 +8,9 @@
 ควรติดตั้งตามนี้:
 
 1. **Vue - Official** 
-   * *สำคัญมาก!* ช่วยให้ VS Code เข้าใจโค้ด Vue 3
+
 2. **Tailwind CSS IntelliSense**
-   * ช่วย Auto-complete ชื่อ Class ของ Tailwind ให้
+
 
 ##  วิธีติดตั้งและรัน (Setup & Run)
 
