@@ -1,0 +1,296 @@
+@import url('https://fonts.googleapis.com/css2?family=Kanit:wght@300;400;500;600&display=swap');
+
+/* --- Reset Styles --- */
+/* สำคัญ: ใช้ border-box เพื่อคำนวณขนาดรวม Padding ไม่ให้เพี้ยน */
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Kanit', sans-serif;
+  overflow-x: hidden;
+}
+
+/* Force Font Family */
+* {
+  font-family: 'Kanit', sans-serif !important;
+}
+
+/* --- HEADER --- */
+.top-header {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  height: 70px;
+  background: #ffffff;
+  box-shadow: 0 1px 4px rgba(0,0,0,0.05);
+  display: flex;
+  align-items: center;
+  padding: 0 40px;
+  z-index: 1000;
+}
+
+.top-header-content {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.mini-logo { height: 40px; width: auto; }
+
+.top-header-text {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  line-height: 1.2;
+}
+
+.system-name {
+  font-size: 14px;
+  font-weight: 600;
+  color: #1e3a8a;
+}
+
+.agency-name {
+  font-size: 12px;
+  color: #64748b;
+}
+
+
+/* --- LAYOUT: จัดการพื้นหลัง 3 ชั้น --- */
+.login-page {
+  position: relative;
+  min-height: 100vh;
+  padding-top: 70px;
+  display: grid;
+  grid-template-columns: 55% 45%;
+
+  background-image: 
+    /* 1. บนสุด: กราฟิกลายจุด */
+    url('/images/graphic1.png'),
+    
+    /* 2. ตรงกลาง: CSS Linear Gradient */
+    linear-gradient(
+      135deg, 
+      rgba(220, 38, 38, 0.9) 0%, 
+      rgba(255, 255, 255, 0) 35%, 
+      rgba(255, 255, 255, 0) 65%, 
+      rgba(30, 58, 138, 0.9) 100% 
+    ),
+
+    /* 3. ล่างสุด: รูปคน/สถานที่ */
+    url('/images/bg-login1.png');
+
+  /* จัดตำแหน่ง */
+  background-position: 
+    bottom -50px,             /* graphic1 */
+    center center,            /* linear-gradient */
+    center center;            /* bg-login1 */
+
+  /* กำหนดขนาด */
+  background-size: 
+    1040px ,                  /* graphic1 */
+    cover,                    /* linear-gradient */
+    cover;                    /* bg-login1 */
+
+  background-repeat: no-repeat;
+}
+
+/* --- OVERLAY --- */
+.global-overlay {
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background-color: rgba(255, 255, 255, 0.1); 
+  z-index: 0;
+}
+
+/* --- LEFT SIDE (TEXT & BANNER) --- */
+.hero-section {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center; /* จัดกึ่งกลางแนวตั้ง */
+  /* margin-top: 26%; */ /* [แก้ไข] ลบออกเพราะจะดันเนื้อหาตกขอบ */
+  align-items: flex-end;
+  padding: 60px 0px 60px 60px;
+  text-align: right;
+}
+
+.hero-content {
+  width: 100%;
+  max-width: none; 
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  /* [แก้ไข] เพิ่ม margin-top เพื่อดันเนื้อหาลงมาจากจุดกึ่งกลาง */
+  margin-top: 200px; 
+}
+
+/* หัวข้อหลัก */
+.main-title h1,
+.main-title h2 {
+  font-size: 48px;
+  font-weight: 700;
+  color: #2049b8;
+  text-shadow: 0 2px 4px rgba(86, 167, 234, 0.292);
+  margin: 0;
+  line-height: 1.2;
+  text-align: right;
+}
+
+.main-title h1 {
+  margin-bottom: 5px;
+}
+
+/* พื้นที่ประชาสัมพันธ์ */
+.promo-container {
+  margin-top: 60px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  position: relative;
+}
+
+.promo-label {
+  font-size: 14px; color: #fff;
+  margin: 0 0 5px 0;
+  text-shadow: 0 1px 2px rgba(0,0,0,0.5);
+  font-weight: 500;
+}
+
+.promo-image {
+  max-width: 850px;
+  width: 100%;
+  height: auto;
+  border: 2px solid rgba(0, 0, 1, 0.548);
+}
+
+/* --- RIGHT SIDE (LOGIN BOX) --- */
+.form-section {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding-right: 50px;
+}
+
+.login-box {
+  width: 100%;
+  
+  /* [แก้ไข] ขยายขนาดให้พอดีกับปุ่ม ThaID และ border-box */
+  max-width: 480px;  /* จากเดิม 420px */
+  min-height: 620px; /* จากเดิม 500px */
+  padding: 50px 40px; /* ปรับ Padding ให้สมดุล */
+  
+  background: #ffffff;
+  border-radius: 20px;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.15);
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.form-header { margin-bottom: 40px; }
+.form-logo { width: 100px; margin-bottom: 15px; }
+
+.form-header h3 {
+  color: #1e3a8a;
+  font-size: 28px;
+  font-weight: 600;
+  margin: 0;
+}
+
+.field { text-align: left; margin-bottom: 25px; }
+.field label {
+  font-size: 15px; color: #475569; margin-bottom: 10px; display: block; font-weight: 500;
+}
+
+.field input {
+  width: 100%; height: 50px; padding: 0 15px;
+  border: 1px solid #cbd5e1; border-radius: 8px;
+  font-size: 16px; box-sizing: border-box;
+}
+
+.field input:focus {
+  outline: none; border-color: #1e3a8a;
+  box-shadow: 0 0 0 4px rgba(30, 58, 138, 0.1);
+}
+
+.password-input { position: relative; }
+
+/* ปุ่มลูกตา */
+.eye-btn {
+  position: absolute;
+  right: 15px; top: 50%; transform: translateY(-50%);
+  background: none; border: none; cursor: pointer;
+  padding: 5px;
+  display: flex; align-items: center; justify-content: center;
+}
+
+.eye-icon {
+  width: 24px; height: 24px;
+  opacity: 0.6; transition: opacity 0.2s;
+}
+
+.eye-btn:hover .eye-icon { opacity: 1; }
+
+/* ปุ่มหลัก */
+.btn-primary {
+  width: 100%; height: 52px;
+  background-color: #0c4da2; color: white;
+  border: none; border-radius: 8px;
+  font-size: 18px; font-weight: 600; cursor: pointer;
+  margin-top: 15px; margin-bottom: 15px;
+  box-shadow: 0 4px 6px rgba(12, 77, 162, 0.3);
+  transition: all 0.2s;
+}
+
+.btn-primary:hover { 
+  background-color: #0a3d82; transform: translateY(-1px); 
+}
+
+/* เส้นแบ่ง "หรือ" */
+.divider {
+  display: flex; align-items: center; text-align: center;
+  margin: 15px 0; color: #94a3b8; font-size: 13px;
+}
+.divider::before, .divider::after {
+  content: ''; flex: 1; border-bottom: 1px solid #e2e8f0;
+}
+.divider span { padding: 0 10px; }
+
+/* ปุ่ม ThaID */
+.btn-thaid {
+  width: 100%; height: 52px;
+  background-color: #ffffff;
+  border: 1px solid #cbd5e1; border-radius: 8px;
+  cursor: pointer;
+  display: flex; align-items: center; justify-content: center;
+  gap: 10px; transition: all 0.2s;
+  color: #1e3a8a; font-size: 16px; font-weight: 500;
+  margin-bottom: 25px;
+}
+
+.btn-thaid:hover {
+  background-color: #f8fafc; border-color: #1e3a8a;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+}
+
+.thaid-logo-img { height: 28px; width: auto; }
+
+/* Footer Links */
+.form-footer-links { font-size: 14px; color: #64748b; }
+.form-footer-links a { color: #475569; text-decoration: none; margin: 0 8px; transition: color 0.2s; }
+.form-footer-links a:hover { color: #0c4da2; text-decoration: underline; }
+
+/* Responsive */
+@media (max-width: 1024px) {
+  .login-page { grid-template-columns: 1fr; }
+  .hero-section { display: none; }
+  .form-section { padding: 20px; }
+  .login-box { min-height: auto; padding: 40px 30px; box-shadow: none; }
+}
