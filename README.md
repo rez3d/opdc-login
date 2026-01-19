@@ -1,75 +1,24 @@
-# Nuxt Minimal Starter
+# OPDC Tracking System (Frontend)
 
-Look at the [Nuxt documentation](https://nuxt.com/docs/getting-started/introduction) to learn more.
+##  สิ่งที่ต้องมีในเครื่อง (Prerequisites)
+1. **Node.js** (เวอร์ชัน 18 ขึ้นไป) - [ดาวน์โหลด](https://nodejs.org/)
+2. **VS Code** (Editor สำหรับเขียนโค้ด)
 
-## Setup
+##  Extension ที่ลงใน VS Code
+ควรติดตั้งตามนี้:
 
-Make sure to install dependencies:
+1. **Vue - Official** 
+   * *สำคัญมาก!* ช่วยให้ VS Code เข้าใจโค้ด Vue 3
+2. **Tailwind CSS IntelliSense**
+   * ช่วย Auto-complete ชื่อ Class ของ Tailwind ให้
 
-```bash
-# npm
+## 🛠️ วิธีติดตั้งและรัน (Setup & Run)
+
+เปิด Terminal ใน VS Code แล้วพิมพ์คำสั่งตามลำดับ:
+
+**1. ติดตั้ง Library ต่างๆ**
+
 npm install
 
-# pnpm
-pnpm install
-
-# yarn
-yarn install
-
-# bun
-bun install
-```
-
-## Development Server
-
-Start the development server on `http://localhost:3000`:
-
-```bash
-# npm
+**2. รันโปรเจกต์**
 npm run dev
-
-# pnpm
-pnpm dev
-
-# yarn
-yarn dev
-
-# bun
-bun run dev
-```
-
-## Production
-
-Build the application for production:
-
-```bash
-# npm
-npm run build
-
-# pnpm
-pnpm build
-
-# yarn
-yarn build
-
-# bun
-bun run build
-```
-
-Locally preview production build:
-
-```bash
-# npm
-npm run preview
-
-# pnpm
-pnpm preview
-
-# yarn
-yarn preview
-
-# bun
-bun run preview
-```
-
-Check out the [deployment documentation](https://nuxt.com/docs/getting-started/deployment) for more information.
